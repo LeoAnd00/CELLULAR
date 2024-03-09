@@ -34,6 +34,16 @@ scNear.train(adata=adata_train, train_classifier=True, target_key="cell_type", b
 adata_test = sc.read("test_data.h5ad", cache=True)
 predictions = scNear.predict(adata=adata_test, use_classifier=True)
 ```
+### For making cell type representations
+```
+import scNear
+
+adata_train = sc.read("train_data.h5ad", cache=True)
+scNear.train(adata=adata_train, target_key="cell_type", batch_key="batch")
+
+adata_test = sc.read("test_data.h5ad", cache=True)
+representations = scNear.generate_representations(adata=adata_test, target_key="cell_type")
+```
 
 ## Tutorials
 See Tutorial/latent_space_tutorial.ipynb and Tutorial/classification_tutorial.ipynb

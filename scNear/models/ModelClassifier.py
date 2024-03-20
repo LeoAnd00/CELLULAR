@@ -47,16 +47,22 @@ class ModelClassifier(nn.Module):
     ----------
     input_dim 
         The input dimension of the model. (Number of HVGs)
+
     num_cell_types 
         The output dimension of the model, representing the number of cell types.
+
     classifier_act_layer 
         The activation function layer to use. Default is nn.ReLU.
+
     classifier_norm_layer 
         The normalization layer to use. Default is nn.BatchNorm1d.
+
     first_layer_dim
         Number of neurons in the first layer. Default is 512.
+
     second_layer_dim
         Number of neurons in the second layer. Default is 512.
+
     classifier_drop_out 
         The dropout ratio. Default is 0.2.
 
@@ -86,12 +92,12 @@ class ModelClassifier(nn.Module):
 
     def forward(self, x):
         """
-        Forward pass of the model.
+        Forward pass of the classifier model.
 
         Parameters
         ----------
         x : torch.Tensor
-            Input tensor for the model.
+            Input tensor for the model. Should be log1p normalized counts.
 
         Returns
         -------

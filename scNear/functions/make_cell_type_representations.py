@@ -14,6 +14,43 @@ def generate_representation(data_,
                             device: str=None, 
                             use_multiple_gpus: bool=False,
                             method: str="centroid"):
+    """
+    Generate representations of cell types based on the provided data using the specified method.
+
+    Parameters
+    ----------
+    data_ : AnnData
+        An AnnData object containing the data.
+
+    model : object
+        The trained model for generating predictions.
+    
+    model_path : str
+        Path to the trained model.
+    
+    target_key : str
+        Key for accessing the target labels in `data_.obs`.
+    
+    save_path : str, optional
+        Path to save the representation files (default is "cell_type_vector_representation").
+    
+    batch_size : int, optional
+        Batch size for making predictions (default is 32).
+    
+    device : str, optional
+        Which device to use, like "cpu" or "cuda". If left as None it will automatically select "cuda" if available, else "cpu" (default is None).
+    
+    use_multiple_gpus : bool, optional
+        If using GPU, whether to use one GPU or all avilable GPUs (default is False).
+    
+    method : str, optional
+        Method for generating representations: "centroid", "median", or "medoid" (default is "centroid").
+
+    Returns
+    -------
+    pandas.DataFrame
+        DataFrame containing the cell type representations.
+    """
 
     # Make predictions
     predictions = predict(data_=data_, 
@@ -34,11 +71,17 @@ def generate_representation(data_,
         """
         Calculates and returns centroids for each unique label in the dataset.
 
+        Parameters
+        ----------
+        adata_ : AnnData
+            An AnnData object containing the data.
+
         Returns
         -------
         dict
             A dictionary where each key is a unique label and the corresponding value is the centroid representation.
         """
+
         unique_labels = np.unique(adata_.obs[target_key])
         centroids = {}  # A dictionary to store centroids for each label.
 
@@ -60,11 +103,17 @@ def generate_representation(data_,
         """
         Calculates and returns median centroids for each unique label in the dataset.
 
+        Parameters
+        ----------
+        adata_ : AnnData
+            An AnnData object containing the data.
+
         Returns
         -------
         dict
             A dictionary where each key is a unique label and the corresponding value is the median centroid representation.
         """
+
         unique_labels = np.unique(adata_.obs[target_key])
         median_centroids = {}  # A dictionary to store median centroids for each label.
 
@@ -85,6 +134,11 @@ def generate_representation(data_,
     def MedoidRepresentation(adata_):
         """
         Calculates and returns medoid centroids for each unique label in the dataset.
+
+        Parameters
+        ----------
+        adata_ : AnnData
+            An AnnData object containing the data.
 
         Returns
         -------

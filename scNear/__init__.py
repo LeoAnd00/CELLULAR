@@ -43,12 +43,13 @@ def train(adata,
           accum_grad_classifier: int = 1):
     """
     Fit scNear to your Anndata.\n
+    Worth noting is that adata.X should contain the log1p normalized counts.\n
     Saves model and relevant information to be able to make predictions on new data.
 
     Parameters
     ----------
     adata 
-        An AnnData object containing single-cell RNA-seq data.
+        An AnnData object containing single-cell RNA-seq data. adata.X should contain the log1p normalized counts.
     target_key
         Specify key in adata.obs that contain target labels. For example "cell type".
     batch_key
@@ -322,12 +323,13 @@ def predict(adata,
             return_pred_probs: bool=False):
     """
     Make predictions using scNear.\n
+    Worth noting is that adata.X should contain the log1p normalized counts.\n
     Make sure you've got a trained model before calling this function.
 
     Parameters
     ----------
     adata 
-        An AnnData object containing single-cell RNA-seq data.
+        An AnnData object containing single-cell RNA-seq data. adata.X should contain the log1p normalized counts.
     model_path
         Path where model will be saved. Default is "trained_models/".
     batch_size
@@ -413,12 +415,13 @@ def generate_representations(adata,
                              batch_size: int=32,
                              method: str="centroid"):
     """
-    Generates cell type representation vectors using the latent space produced by scNear.
+    Generates cell type representation vectors using the latent space produced by scNear. \n
+    Worth noting is that adata.X should contain the log1p normalized counts.
 
     Parameters
     ----------
     adata 
-        An AnnData object containing single-cell RNA-seq data.
+        An AnnData object containing single-cell RNA-seq data. adata.X should contain the log1p normalized counts.
     target_key
         Specify key in adata.obs that contain target labels. For example "cell type".
     device
@@ -467,7 +470,8 @@ def generate_representations(adata,
 def log1p_normalize(data):
     """
     Perform log1p normalization on single-cell RNA sequencing data.\n
-    This was the normalization function used for the data in the scNear article.
+    This was the normalization function used for the data in the scNear article.\n
+    This function will set data.X to be log1p normalized.
 
     Parameters
     ----------

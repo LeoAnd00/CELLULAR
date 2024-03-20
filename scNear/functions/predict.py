@@ -21,20 +21,28 @@ def predict(data_,
     ----------
     data_ : AnnData
         An AnnData object containing data for prediction.
+    
     model_path : str
         The path to the directory where the trained model is saved.
+    
     model : nn.Module
         If the model is saved as torch.save(model.state_dict(), f'{out_path}model.pt') one have to input a instance of the model. If torch.save(model, f'{out_path}model.pt') was used then leave this as None (default is None).
+    
     model_classifier : nn.Module
         The classifier model.
+
     batch_size : int, optional
         Batch size for data loading during prediction (default is 32).
+
     device : str or None, optional
         The device to run the prediction on (e.g., "cuda" or "cpu"). If None, it automatically selects "cuda" if available, or "cpu" otherwise.
+    
     use_multiple_gpus
         If True, use nn.DataParallel() on model. Default is False.
+
     use_classifier: bool, optional
-        Whether to make cell type annotation predictions or generate latent space (defualt is False).  
+        Whether to make cell type annotation predictions or generate latent space (defualt is False). 
+
     Returns
     -------
     preds : np.array
@@ -142,12 +150,6 @@ class prep_test_data(data.Dataset):
 
         __getitem__(idx) 
             Retrieves a specific data sample by index.
-
-        bucketize_expression_levels(expression_levels, num_buckets)
-            Bucketize expression levels into categories based on the specified number of buckets and absolute min/max values.
-
-        bucketize_expression_levels_per_gene(expression_levels, num_buckets)
-            Bucketize expression levels into categories based on the specified number of buckets and min/max values of each individual gene.
     """
 
     def __init__(self, adata, model_path):

@@ -6,7 +6,7 @@ class OutputEncoder(nn.Module):
                  input_dim: int, 
                  output_dim: int,
                  act_layer=nn.ReLU,
-                 norm_layer=nn.BatchNorm1d,
+                 norm_layer=nn.LayerNorm,
                  drop_out: float=0.0):
         super().__init__()
 
@@ -43,14 +43,18 @@ class Model1(nn.Module):
     ----------
     input_dim : int
         The input dimension of the model. (Number of HVGs)
+
     output_dim : int
         The output dimension of the model, representing cell type embeddings. Default is 100.
+
     drop_out : float, optional
-        The dropout ratio used in the output projection layer. Default is 0.2.
+        The dropout ratio. Default is 0.2.
+
     act_layer : nn.Module, optional
         The activation function layer to use. Default is nn.ReLU.
+
     norm_layer : nn.Module, optional
-        The normalization layer to use. Default is nn.BatchNorm1d.
+        The normalization layer to use. Default is nn.LayerNorm.
 
     Methods
     -------
@@ -79,12 +83,12 @@ class Model1(nn.Module):
         Parameters
         ----------
         x : torch.Tensor
-            Input tensor for the model.
+            Input tensor for the model. Should be log1p normalized counts.
 
         Returns
         -------
         torch.Tensor
-            Output tensor representing cell type embeddings.
+            Output tensor of the generated embedding space.
         """
 
         # Output encoder 

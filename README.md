@@ -2,7 +2,7 @@
 
 **Intorduction**
 To learn a meaningful representation of cells, this project aims to utilize scRNA-Seq data to train a neural network to
-produce an efficient, lower-dimensional embedding space for the data. This space can then be used for cell type annotation, generating cell type representations or simply for visualization. 
+produce an efficient, lower-dimensional embedding space for the data. This space can then be used for downstream tasks, such as cell type annotation, novel cell type detection, generating cell type representations or simply for visualization. 
 
 ## Necessary programming languages
 - Python version 3.10.5
@@ -46,7 +46,7 @@ representations = scNear.generate_representations(adata=adata_test, target_key="
 ```
 
 ## Tutorials
-See Tutorial/latent_space_tutorial.ipynb and Tutorial/classification_tutorial.ipynb
+See *Tutorial/embedding_space_tutorial.ipynb*, *Tutorial/classification_tutorial.ipynb*, and *Tutorial/pre_process_tutorial.ipynb*.
 
 ## Authors
 Leo Andrekson

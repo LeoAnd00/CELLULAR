@@ -1037,7 +1037,7 @@ class train_module():
                  model: nn.Module,
                  device: str=None,
                  seed: int=42,
-                 batch_size: int=236,
+                 batch_size: int=256,
                  use_multiple_gpus: bool=False,
                  use_target_weights: bool=True,
                  use_batch_weights: bool=True,
@@ -1049,7 +1049,7 @@ class train_module():
                  lr_scheduler_maxiters: int=50,
                  eval_freq: int=1,
                  epochs: int=50,
-                 earlystopping_threshold: int=10,
+                 earlystopping_threshold: int=20,
                  accum_grad: int=1):
         """
         Perform training of the machine learning model for making an embedding space.
@@ -1102,7 +1102,7 @@ class train_module():
             Early stopping threshold (default is 10).
 
         accum_grad : int, optional
-            How many mini-batches the gradient should eb accumulated for before updating weights (default is 1).
+            How many mini-batches the gradient should be accumulated for before updating weights (default is 1).
 
         Returns
         -------

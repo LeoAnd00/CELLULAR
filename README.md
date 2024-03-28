@@ -16,6 +16,7 @@ pip install scNear
 
 ### For making embedding space
 ```
+import scanpy as sc
 import scNear
 
 adata_train = sc.read("train_data.h5ad", cache=True)
@@ -26,6 +27,7 @@ predictions = scNear.predict(adata=adata_test)
 ```
 ### For cell type annotation
 ```
+import scanpy as sc
 import scNear
 
 adata_train = sc.read("train_data.h5ad", cache=True)
@@ -36,6 +38,7 @@ predictions = scNear.predict(adata=adata_test, use_classifier=True)
 ```
 ### For making cell type representations
 ```
+import scanpy as sc
 import scNear
 
 adata_train = sc.read("train_data.h5ad", cache=True)

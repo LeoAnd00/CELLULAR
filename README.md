@@ -36,6 +36,17 @@ scNear.train(adata=adata_train, train_classifier=True, target_key="cell_type", b
 adata_test = sc.read("test_data.h5ad", cache=True)
 predictions = scNear.predict(adata=adata_test, use_classifier=True)
 ```
+### For novel cell type detection
+```
+import scanpy as sc
+import scNear
+
+adata_train = sc.read("train_data.h5ad", cache=True)
+scNear.train(adata=adata_train, target_key="cell_type", batch_key="batch")
+
+adata_test = sc.read("test_data.h5ad", cache=True)
+scNear.novel_cell_type_detection(adata=adata_test)
+```
 ### For making cell type representations
 ```
 import scanpy as sc

@@ -1,7 +1,7 @@
 {
     "input_dim": 100,
-    "num_cell_types": 20,
-    "first_layer_dim": 128,
-    "second_layer_dim": 1792,
+    "num_cell_types": 14,
+    "first_layer_dim": 704,
+    "second_layer_dim": 1088,
     "classifier_drop_out": 0.5
 }

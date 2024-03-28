@@ -1290,7 +1290,6 @@ class train_module():
 
         # Define data
         train_loader = data.DataLoader(self.data_env_for_classification, batch_size=batch_size, shuffle=True, drop_last=True)
-        #val_loader = data.DataLoader(self.data_env_validation_for_classification, batch_size=batch_size, shuffle=True, drop_last=True)
         min_batch_size = int(np.min([self.data_env_validation_for_classification.X.shape[0], batch_size]))
         val_loader = data.DataLoader(self.data_env_validation_for_classification, batch_size=min_batch_size, shuffle=False, drop_last=True)
 

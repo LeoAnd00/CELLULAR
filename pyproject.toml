@@ -4,7 +4,7 @@ version = "0.0.1"
 authors = [
   { name="Leo Andrekson", email="leo.andrekson@gmail.com" },
 ]
-description = "A package for generating an embedding space from scRNA-Seq. This space can be used for cell type annotation, cell type representations, and visualization"
+description = "A package for generating an embedding space from scRNA-Seq. This space can be used for cell type annotation, novel cell type detection, cell type representations, and visualization"
 readme = "README.md"
 requires-python = ">=3.10.5"
 classifiers = [

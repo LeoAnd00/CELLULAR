@@ -554,17 +554,14 @@ def novel_cell_type_detection(adata, model_path: str="trained_models/", threshol
     None
     """
 
-    # Make prediction and retrieve likelihood
-    _, pred_prob = predict(adata=adata, model_path=model_path, use_classifier=True, return_pred_probs=True)
-
-    # def config path
-    config_file_path = f'{model_path}config/model_config.json'
+    # Define the file path from which to load the configuration
+    config_file_path = f'{model_path}config/model_classifier_config.json'
 
     # Load the configuration from the JSON file
     with open(config_file_path, 'r') as f:
-        loaded_config = json.load(f)
+        loaded_config_classifier = json.load(f)
 
-    num_cell_types = loaded_config["num_cell_types"] # Num cell types
+    num_cell_types = loaded_config_classifier["num_cell_types"] # Num cell types
     pred_prob = [(x - num_cell_types) / (1 - num_cell_types) for x in pred_prob] # Normalize
 
     # Calculate the minimum likelihood detected

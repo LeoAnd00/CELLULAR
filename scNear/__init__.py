@@ -532,7 +532,7 @@ def generate_representations(adata,
 
     return representations
 
-def novel_cell_type_detection(adata, model_path: str="trained_models/", threshold: float=0.26):
+def novel_cell_type_detection(adata, model_path: str="trained_models/", threshold: float=0.22):
     """
     Detects the presence of novel cell types in the data based on a given threshold.\n
     This function uses a pre-trained model to predict cell types from the input data (adata).
@@ -565,7 +565,8 @@ def novel_cell_type_detection(adata, model_path: str="trained_models/", threshol
         loaded_config_classifier = json.load(f)
 
     num_cell_types = loaded_config_classifier["num_cell_types"] # Num cell types
-    pred_prob = [(x - num_cell_types) / (1 - num_cell_types) for x in pred_prob] # Normalize
+    num_cell_types_inv = 1/num_cell_types
+    pred_prob = [(x - num_cell_types_inv) / (1 - num_cell_types_inv) for x in pred_prob] # Normalize
 
     # Calculate the minimum likelihood detected
     min_prob = np.min(pred_prob)

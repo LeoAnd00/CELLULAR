@@ -548,6 +548,7 @@ class CustomSNNLoss(nn.Module):
         non_zero_mask = cell_type_centroids_distances_matrix_filter != 0
         average_distance_matrix_input = average_distance_matrix_input[non_zero_mask]
         cell_type_centroids_distances_matrix_filter = cell_type_centroids_distances_matrix_filter[non_zero_mask]
+        cell_type_centroids_distances_matrix_filter = cell_type_centroids_distances_matrix_filter / torch.max(cell_type_centroids_distances_matrix_filter)
 
         # Step 3: Calculate the MSE between target centroids and current centroids
         # Set to zero if loss can't be calculated, like if there's only one cell type per batch effect element for all elements

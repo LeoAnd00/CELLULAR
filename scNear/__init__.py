@@ -554,6 +554,9 @@ def novel_cell_type_detection(adata, model_path: str="trained_models/", threshol
     None
     """
 
+    # Make prediction and retrieve likelihood
+    _, pred_prob = predict(adata=adata, model_path=model_path, use_classifier=True, return_pred_probs=True)
+
     # Define the file path from which to load the configuration
     config_file_path = f'{model_path}config/model_classifier_config.json'
 

@@ -532,7 +532,7 @@ def generate_representations(adata,
 
     return representations
 
-def novel_cell_type_detection(adata, model_path: str="trained_models/", threshold: float=0.22):
+def novel_cell_type_detection(adata, model_path: str="trained_models/", threshold: float=0.25):
     """
     Detects the presence of novel cell types in the data based on a given threshold.\n
     This function uses a pre-trained model to predict cell types from the input data (adata).
@@ -547,7 +547,7 @@ def novel_cell_type_detection(adata, model_path: str="trained_models/", threshol
     model_path (str)
         Path to the pre-trained model used for prediction.
     threshold (float, optional)
-        Threshold value for determining the presence of a novel cell type. Default is 0.26.
+        Threshold value for determining the presence of a novel cell type. Default is 0.25.
 
     Returns:
     --------

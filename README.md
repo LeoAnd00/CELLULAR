@@ -1,18 +1,20 @@
-# scNear - contrastive learning Neural networks to generate scRNA-Seq Embeddings, Annotations and Representations
+# CELLULAR: CELLUlar contrastive Learning for Annotation and Representation
 
-**Intorduction**
-To learn a meaningful representation of cells, this project aims to utilize scRNA-Seq data to train a neural network to
-produce an efficient, lower-dimensional embedding space for the data. This space can then be used for downstream tasks, such as cell type annotation, novel cell type detection, generating cell type representations or simply for visualization. 
+**Abstract**
+Batch effects are a significant concern in single-cell RNA sequencing (scRNA-Seq) data analysis, where variations in the data can be attributed to factors unrelated to cell types. This can make downstream analysis a challenging task. In this study, a neural network model is designed utilizing contrastive learning and a novel loss function for creating an generalizable embedding space from scRNA-Seq data. When benchmarked against multiple established methods on scRNA-Seq integration, the model outperformed existing methods on creating a generalizable embedding space on multiple datasets. A downstream application that was investigated for the embedding space was cell type annotation. When compared against multiple well established cell type classifiers the model in this study displayed a performance competitive with top performing methods across multiple metrics, such as accuracy, balanced accuracy and F1 score. These findings motivates the meaningfulness contained within the generated embedding space by the model, highlighting its potential applications.
 
 ## Necessary programming languages
-- Python version 3.10.5
+- Python version >= 3.10.5
 
 ## Setup
 ```
-pip install scNear
+pip install CELLULAR
 ```
 
-## How to run
+## Data
+Data for the tutorial can be installed from: ADD LINK
+
+## Usage
 
 ### For making embedding space
 ```
@@ -62,5 +64,5 @@ representations = scNear.generate_representations(adata=adata_test, target_key="
 ## Tutorials
 See *Tutorial/embedding_space_tutorial.ipynb*, *Tutorial/classification_tutorial.ipynb*, and *Tutorial/pre_process_tutorial.ipynb*.
 
-## Authors
-Leo Andrekson
+## Citation
+Coming soon

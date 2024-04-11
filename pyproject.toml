@@ -1,8 +1,9 @@
 [project]
-name = "scNear"
+name = "CELLULAR"
 version = "0.0.1"
 authors = [
   { name="Leo Andrekson", email="leo.andrekson@gmail.com" },
+  { name="Rocío Mercado", email="rocom@chalmers.se" }
 ]
 description = "A package for generating an embedding space from scRNA-Seq. This space can be used for cell type annotation, novel cell type detection, cell type representations, and visualization"
 readme = "README.md"

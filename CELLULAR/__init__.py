@@ -43,7 +43,7 @@ def train(adata,
           earlystopping_threshold_classifier: int = 10,
           accum_grad_classifier: int = 1):
     """
-    Fit scNear to your Anndata.\n
+    Fit CELLULAR to your Anndata.\n
     Worth noting is that adata.X should contain normalized counts.\n
     Saves model and relevant information to be able to make predictions on new data using the predict function.
 
@@ -59,16 +59,16 @@ def train(adata,
         Specify key in adata.obs that contain batch effect key one wants to correct for. For example "patientID".
     
     latent_dim (int, optional)
-        Dimension of latent space produced by scNear. Default is 100.
+        Dimension of latent space produced by CELLULAR. Default is 100.
     
     HVGs (int, optional)
-        Number of highly variable genes (HVGs) to select as input to scNear. Default is 2000.
+        Number of highly variable genes (HVGs) to select as input to CELLULAR. Default is 2000.
     
     model_path (str, optional)
         Path where model will be saved. Default is "trained_models/".
     
     train_classifier (bool, optional)
-        Whether to train scNear as a classifier (True) or to produce a latent space (False). Default is False.
+        Whether to train CELLULAR as a classifier (True) or to produce a latent space (False). Default is False.
     
     optimize_classifier (bool, optional)
         Whether to use Optuna to optimize the classifier part of the model, assuming train_classifier is True. Default is True.
@@ -81,7 +81,7 @@ def train(adata,
         Number of trials for optimizing classifier, assuming train_classifier and optimize_classifier are True. Default is 100.
     
     use_already_trained_latent_space_generator (bool, optional)
-        If you've already trained scNear on making a latent space you can use this model when training the classifier (True), 
+        If you've already trained CELLULAR on making a latent space you can use this model when training the classifier (True), 
         or if you haven't trained it you can train it as a first step of training the classifier (False). Default is False.
     
     device (str, optional)
@@ -98,74 +98,74 @@ def train(adata,
         Which random seed to use. Default is 42.
     
     batch_size (int, optional)
-        Mini-batch size used for training latent space producing part of scNear. Default is 256.
+        Mini-batch size used for training latent space producing part of CELLULAR. Default is 256.
     
     init_lr (float, optional)
-        Initial learning rate for training latent space producing part of scNear. Default is 0.001.
+        Initial learning rate for training latent space producing part of CELLULAR. Default is 0.001.
     
     epochs (int, optional)
-        Number of epochs for training latent space producing part of scNear. Default is 50.
+        Number of epochs for training latent space producing part of CELLULAR. Default is 50.
     
     lr_scheduler_warmup (int, optional)
-        Number of epochs for the warm up part of the CosineWarmupScheduler for training latent space producing part of scNear.
+        Number of epochs for the warm up part of the CosineWarmupScheduler for training latent space producing part of CELLULAR.
         Default is 4.
     
     lr_scheduler_maxiters (int, optional)
-        Number of epochs at which the learning rate would become zero for training latent space producing part of scNear.
+        Number of epochs at which the learning rate would become zero for training latent space producing part of CELLULAR.
         Default is 50.
     
     eval_freq (int, optional)
-        Number of epochs between calculating loss of validation data for training latent space producing part of scNear. 
+        Number of epochs between calculating loss of validation data for training latent space producing part of CELLULAR. 
         Default is 1.
     
     earlystopping_threshold (int, optional)
         Number of validated epochs before terminating training if no improvements to the validation loss is made for training 
-        latent space producing part of scNear. Default is 20.
+        latent space producing part of CELLULAR. Default is 20.
     
     accum_grad (int, optional)
         Number of Mini-batches to calculate gradient for before updating weights for training latent space producing part of 
-        scNear. Default is 1.
+        CELLULAR. Default is 1.
     
     batch_size_classifier (int, optional)
-        Mini-batch size used for training classifier part of scNear. Default is 256.
+        Mini-batch size used for training classifier part of CELLULAR. Default is 256.
     
     init_lr_classifier (float, optional)
-        Initial learning rate for training classifier part of scNear. Default is 0.001.
+        Initial learning rate for training classifier part of CELLULAR. Default is 0.001.
     
     lr_scheduler_warmup_classifier (int, optional)
-        Number of epochs for the warm up part of the CosineWarmupScheduler for training classifier part of scNear.
+        Number of epochs for the warm up part of the CosineWarmupScheduler for training classifier part of CELLULAR.
         Default is 4.
     
     lr_scheduler_maxiters_classifier (int, optional)
-        Number of epochs at which the learning rate would become zero for training classifier part of scNear.
+        Number of epochs at which the learning rate would become zero for training classifier part of CELLULAR.
         Default is 50.
     
     eval_freq_classifier (int, optional)
-        Number of epochs between calculating loss of validation data for training classifier part of scNear.
+        Number of epochs between calculating loss of validation data for training classifier part of CELLULAR.
         Default is 1.
     
     epochs_classifier (int, optional)
-        Number of epochs for training classifier part of scNear. Default is 50.
+        Number of epochs for training classifier part of CELLULAR. Default is 50.
     
     earlystopping_threshold_classifier (int, optional)
         Number of validated epochs before terminating training if no improvements to the validation loss is made for training 
-        classifier part of scNear. Default is 10.
+        classifier part of CELLULAR. Default is 10.
     
     accum_grad_classifier (int, optional)
         Number of Mini-batches to calculate gradient for before updating weights for training classifier part of 
-        scNear. Default is 1.
+        CELLULAR. Default is 1.
 
     Latent Space Example
     --------
-    >>> import scNear
-    >>> scNear.train(adata=adata_train, target_key="cell_type", batch_key="batch")
-    >>> predictions = scNear.predict(adata=adata_test)
+    >>> import CELLULAR
+    >>> CELLULAR.train(adata=adata_train, target_key="cell_type", batch_key="batch")
+    >>> predictions = CELLULAR.predict(adata=adata_test)
 
     Classifier Example
     --------
-    >>> import scNear
-    >>> scNear.train(adata=adata_train, train_classifier=True, target_key="cell_type", batch_key="batch")
-    >>> predictions = scNear.predict(adata=adata_test, use_classifier=True)
+    >>> import CELLULAR
+    >>> CELLULAR.train(adata=adata_train, train_classifier=True, target_key="cell_type", batch_key="batch")
+    >>> predictions = CELLULAR.predict(adata=adata_test, use_classifier=True)
 
     Returns
     -------
@@ -372,7 +372,7 @@ def predict(adata,
             use_classifier: bool=False,
             return_pred_probs: bool=False):
     """
-    Make predictions using scNear.\n
+    Make predictions using CELLULAR.\n
     Worth noting is that adata.X should contain the normalized counts.\n
     Make sure you've got a trained model before calling this function.
 
@@ -395,7 +395,7 @@ def predict(adata,
         If True, use nn.DataParallel() on model. Default is False.
     
     use_classifier (bool, optional)
-        Whether to make cell type prediction using classifier part of scNear (True) or predict latent space (False). Default is False.
+        Whether to make cell type prediction using classifier part of CELLULAR (True) or predict latent space (False). Default is False.
     
     return_pred_probs (bool, optional)
         Whether to return the probability/likelihood of cell type predictions. Default is False.
@@ -472,7 +472,7 @@ def generate_representations(adata,
                              batch_size: int=32,
                              method: str="centroid"):
     """
-    Generates cell type representation vectors using the latent space produced by scNear. \n
+    Generates cell type representation vectors using the latent space produced by CELLULAR. \n
     Worth noting is that adata.X should contain the normalized counts.
 
     Parameters

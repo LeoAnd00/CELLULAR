@@ -12,7 +12,7 @@ pip install CELLULAR
 ```
 
 ## Data
-Data for the tutorial can be installed from: ADD LINK
+Data for the tutorial can be installed from [here](https://doi.org/10.5281/zenodo.10959788).
 
 ## Usage
 

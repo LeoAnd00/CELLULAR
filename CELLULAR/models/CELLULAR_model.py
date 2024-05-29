@@ -33,9 +33,9 @@ class OutputEncoder(nn.Module):
         return x
     
 
-class Model1(nn.Module):
+class CELLULAR_model(nn.Module):
     """
-    A PyTorch module for Model1.
+    A PyTorch module for CELLULAR_model.
 
     This model processes input data through a encoder to produce cell type embeddings.
 
@@ -59,7 +59,7 @@ class Model1(nn.Module):
     Methods
     -------
     forward(x)
-        Forward pass of Model1.
+        Forward pass of CELLULAR_model.
     """
 
     def __init__(self, 
@@ -78,7 +78,7 @@ class Model1(nn.Module):
 
     def forward(self, x):
         """
-        Forward pass of Model1.
+        Forward pass of CELLULAR_model.
 
         Parameters
         ----------

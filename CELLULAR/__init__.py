@@ -8,7 +8,7 @@ from .functions import train as trainer_fun
 from .functions import predict as predict_fun
 from .functions import make_cell_type_representations as generate_representation_fun
 from .functions import data_preprocessing as dp
-from .models import Model1 as Model1
+from .models import CELLULAR_model as CELLULAR_model
 from .models import ModelClassifier as ModelClassifier
 
 def train(adata,
@@ -193,7 +193,7 @@ def train(adata,
     rep_seed(seed=seed)
 
     # Initiate model
-    model = Model1.Model1(input_dim=HVGs,
+    model = CELLULAR_model.CELLULAR_model(input_dim=HVGs,
                           output_dim=latent_dim)
     
     # Make configuration dictionary with model variables
@@ -417,7 +417,7 @@ def predict(adata,
         loaded_config = json.load(f)
     
     # Define model and load variable values
-    model = Model1.Model1(input_dim=loaded_config["input_dim"],
+    model = CELLULAR_model.CELLULAR_model(input_dim=loaded_config["input_dim"],
                           output_dim=loaded_config["output_dim"])
 
     # Whether to make prediction using the classifier or not
@@ -516,7 +516,7 @@ def generate_representations(adata,
         loaded_config = json.load(f)
     
     # Initiate model
-    model = Model1.Model1(input_dim=loaded_config["input_dim"],
+    model = CELLULAR_model.CELLULAR_model(input_dim=loaded_config["input_dim"],
                           output_dim=loaded_config["output_dim"])
 
     # Create representations

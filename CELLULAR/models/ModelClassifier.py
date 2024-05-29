@@ -41,7 +41,7 @@ class ModelClassifier(nn.Module):
     """
     A PyTorch module for ModelClassifier.
 
-    This model processes input data through a encoder to produce cell type embeddings.
+    This model processes input data from the CELLULAR_model embedding space through a encoder to produce cell type annotations.
 
     Parameters
     ----------

@@ -11,6 +11,17 @@ Batch effects are a significant concern in single-cell RNA sequencing (scRNA-Seq
 pip install CELLULAR
 ```
 
+## Functionality
+The following functions have been included: <br>
+* Training function for the embedding space model.
+* Training function for the classifier model.
+* Predict function for generating an embedding space.
+* Predict function for performing cell type annotation.
+* Function for novel cell type detection.
+* Function for creating cell type representation vectors.
+* Function for applying the same normalization strategy as was used in this study, giving the end user the option of using the same strategy or implementing their own.
+* Function for automatic preprocessing, although it is still recommended for end users to use their own preprocessing pipeline to make sure it is appropriate for their data.
+
 ## Data
 Data for the tutorial can be installed from [here](https://doi.org/10.5281/zenodo.10959788).
 

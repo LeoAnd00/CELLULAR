@@ -30,46 +30,46 @@ Data for the tutorial can be installed from [here](https://doi.org/10.5281/zenod
 ### For making embedding space
 ```
 import scanpy as sc
-import scNear
+import CELLULAR
 
 adata_train = sc.read("train_data.h5ad", cache=True)
-scNear.train(adata=adata_train, target_key="cell_type", batch_key="batch")
+CELLULAR.train(adata=adata_train, target_key="cell_type", batch_key="batch")
 
 adata_test = sc.read("test_data.h5ad", cache=True)
-predictions = scNear.predict(adata=adata_test)
+predictions = CELLULAR.predict(adata=adata_test)
 ```
 ### For cell type annotation
 ```
 import scanpy as sc
-import scNear
+import CELLULAR
 
 adata_train = sc.read("train_data.h5ad", cache=True)
-scNear.train(adata=adata_train, train_classifier=True, target_key="cell_type", batch_key="batch")
+CELLULAR.train(adata=adata_train, train_classifier=True, target_key="cell_type", batch_key="batch")
 
 adata_test = sc.read("test_data.h5ad", cache=True)
-predictions = scNear.predict(adata=adata_test, use_classifier=True)
+predictions = CELLULAR.predict(adata=adata_test, use_classifier=True)
 ```
 ### For novel cell type detection
 ```
 import scanpy as sc
-import scNear
+import CELLULAR
 
 adata_train = sc.read("train_data.h5ad", cache=True)
-scNear.train(adata=adata_train, target_key="cell_type", batch_key="batch")
+CELLULAR.train(adata=adata_train, target_key="cell_type", batch_key="batch")
 
 adata_test = sc.read("test_data.h5ad", cache=True)
-scNear.novel_cell_type_detection(adata=adata_test)
+CELLULAR.novel_cell_type_detection(adata=adata_test)
 ```
 ### For making cell type representations
 ```
 import scanpy as sc
-import scNear
+import CELLULAR
 
 adata_train = sc.read("train_data.h5ad", cache=True)
-scNear.train(adata=adata_train, target_key="cell_type", batch_key="batch")
+CELLULAR.train(adata=adata_train, target_key="cell_type", batch_key="batch")
 
 adata_test = sc.read("test_data.h5ad", cache=True)
-representations = scNear.generate_representations(adata=adata_test, target_key="cell_type")
+representations = CELLULAR.generate_representations(adata=adata_test, target_key="cell_type")
 ```
 
 ## Tutorials

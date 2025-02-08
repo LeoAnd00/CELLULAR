@@ -8,6 +8,7 @@ Batch effects are a significant concern in single-cell RNA sequencing (scRNA-Seq
 
 ## Setup
 ```
+pip install --extra-index-url https://download.pytorch.org/whl/cu118 torch==2.2.1
 pip install CELLULAR
 ```
 

@@ -6,7 +6,7 @@ with open("README.md", "r") as f:
 
 setup(
     name="CELLULAR_CL",
-    version="0.0.1",
+    version="0.0.2",
     author="Leo Andrekson, Rocío Mercado",
     author_email="leo.andrekson@gmail.com, rocom@chalmers.se",
     description="A package for generating an embedding space from scRNA-Seq. This space can be used for cell type annotation, novel cell type detection, cell type representations, and visualization.",

@@ -9,7 +9,7 @@ setup(
     description="A package for generating an embedding space from scRNA-Seq. This space can be used for cell type annotation, novel cell type detection, cell type representations, and visualization.",
     long_description="Read README.md",
     long_description_content_type="text/markdown",
-    url="https://github.com/LeoAnd00/MT_test_repo",
+    url="https://github.com/LeoAnd00/CELLULAR",
     license="MIT",
     classifiers=[
         "Programming Language :: Python :: 3",

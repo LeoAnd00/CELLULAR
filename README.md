@@ -9,7 +9,7 @@ Batch effects are a significant concern in single-cell RNA sequencing (scRNA-Seq
 ## Setup
 ```
 pip install --extra-index-url https://download.pytorch.org/whl/cu118 torch==2.2.1
-pip install CELLULAR
+pip install CELLULAR-CL
 ```
 
 ## Functionality
@@ -31,7 +31,7 @@ Data for the tutorial can be installed from [here](https://doi.org/10.5281/zenod
 ### For making embedding space
 ```
 import scanpy as sc
-import CELLULAR
+import CELLULAR_CL as CELLULAR
 
 adata_train = sc.read("train_data.h5ad", cache=True)
 CELLULAR.train(adata=adata_train, target_key="cell_type", batch_key="batch")
@@ -42,7 +42,7 @@ predictions = CELLULAR.predict(adata=adata_test)
 ### For cell type annotation
 ```
 import scanpy as sc
-import CELLULAR
+import CELLULAR_CL as CELLULAR
 
 adata_train = sc.read("train_data.h5ad", cache=True)
 CELLULAR.train(adata=adata_train, train_classifier=True, target_key="cell_type", batch_key="batch")
@@ -53,7 +53,7 @@ predictions = CELLULAR.predict(adata=adata_test, use_classifier=True)
 ### For novel cell type detection
 ```
 import scanpy as sc
-import CELLULAR
+import CELLULAR_CL as CELLULAR
 
 adata_train = sc.read("train_data.h5ad", cache=True)
 CELLULAR.train(adata=adata_train, target_key="cell_type", batch_key="batch")
@@ -64,7 +64,7 @@ CELLULAR.novel_cell_type_detection(adata=adata_test)
 ### For making cell type representations
 ```
 import scanpy as sc
-import CELLULAR
+import CELLULAR_CL as CELLULAR
 
 adata_train = sc.read("train_data.h5ad", cache=True)
 CELLULAR.train(adata=adata_train, target_key="cell_type", batch_key="batch")

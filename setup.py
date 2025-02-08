@@ -1,13 +1,16 @@
 from pathlib import Path
 from setuptools import setup, find_packages
 
+with open("README.md", "r") as f:
+    description = f.read()
+
 setup(
-    name="CELLULAR",
+    name="CELLULAR_CL",
     version="0.0.1",
     author="Leo Andrekson, Rocío Mercado",
     author_email="leo.andrekson@gmail.com, rocom@chalmers.se",
     description="A package for generating an embedding space from scRNA-Seq. This space can be used for cell type annotation, novel cell type detection, cell type representations, and visualization.",
-    long_description="Read README.md",
+    long_description=description,
     long_description_content_type="text/markdown",
     url="https://github.com/LeoAnd00/CELLULAR",
     license="MIT",

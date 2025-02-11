@@ -1,8 +1,16 @@
 from pathlib import Path
+import sys
 from setuptools import setup, find_packages
 
 with open("README.md", "r") as f:
     description = f.read()
+
+install_requires=[
+    l.strip() for l in Path('requirements.txt').read_text('utf-8').splitlines()
+    if l.strip() and not l.startswith("--")  # Ignore empty lines and options like --extra-index-url
+],
+if sys.platform.startswith("win"): # Conditionally add pywin32 only on Windows
+    install_requires.append("pywin32==306")
 
 setup(
     name="CELLULAR_CL",
@@ -20,8 +28,5 @@ setup(
     ],
     python_requires=">=3.10.5",
     packages=find_packages(),
-    install_requires=[
-        l.strip() for l in Path('requirements.txt').read_text('utf-8').splitlines()
-        if l.strip() and not l.startswith("--")  # Ignore empty lines and options like --extra-index-url
-    ]
+    install_requires=install_requires,
 )

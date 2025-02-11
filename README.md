@@ -1,9 +1,9 @@
 # CELLULAR: CELLUlar contrastive Learning for Annotation and Representation
 
-**Abstract**
+## Summary
 Batch effects are a significant concern in single-cell RNA sequencing (scRNA-Seq) data analysis, where variations in the data can be attributed to factors unrelated to cell types. This can make downstream analysis a challenging task. In this study, we present a novel deep learning approach using contrastive learning and a carefully designed loss function for learning an generalizable embedding space from scRNA-Seq data. We call this model CELLULAR: CELLUlar contrastive Learning for Annotation and Representation. When benchmarked against multiple established methods for scRNA-Seq integration, CELLULAR outperforms existing methods in learning a generalizable embedding space on multiple datasets. Cell annotation was also explored as a downstream application for the learned embedding space. When compared against multiple well-established methods, CELLULAR demonstrates competitive performance with top cell classification methods in terms of accuracy, balanced accuracy, and F1 score. CELLULAR is also capable of performing novel cell type detection. These findings aim to quantify the *meaningfulness* of the embedding space learned by the model by highlighting the robust performance of our learned cell representations in various applications. The model has been structured into an open-source Python package, specifically designed to simplify and streamline its usage for bioinformaticians and other scientists interested in cell representation learning.
 
-## Necessary programming languages
+## Necessary Python version
 - Python version >= 3.10.5
 
 ## Setup
@@ -13,7 +13,7 @@ pip install CELLULAR-CL
 ```
 
 ## Functionality
-The following functions have been included: <br>
+The following functions have been included:
 * Training function for the embedding space model.
 * Training function for the classifier model.
 * Predict function for generating an embedding space.
@@ -24,11 +24,11 @@ The following functions have been included: <br>
 * Function for automatic preprocessing, although it is still recommended for end users to use their own preprocessing pipeline to make sure it is appropriate for their data.
 
 ## Data
-Data for the tutorial can be installed from [here](https://doi.org/10.5281/zenodo.10959788).
+Data for the tutorials is available to download from [Zenodo](https://doi.org/10.5281/zenodo.10959788).
 
 ## Usage
 
-### For making embedding space
+### For creating a learned embedding space
 ```
 import scanpy as sc
 import CELLULAR_CL as CELLULAR
@@ -74,7 +74,10 @@ representations = CELLULAR.generate_representations(adata=adata_test, target_key
 ```
 
 ## Tutorials
-See *Tutorial/embedding_space_tutorial.ipynb*, *Tutorial/classification_tutorial.ipynb*, and *Tutorial/pre_process_tutorial.ipynb*.
+See the following tutorials, structureed as Python notebooks:
+* [Tutorial/embedding_space_tutorial.ipynb](Tutorial/embedding_space_tutorial.ipynb)
+* [Tutorial/classification_tutorial.ipynb](Tutorial/classification_tutorial.ipynb)
+* [Tutorial/pre_process_tutorial.ipynb](Tutorial/pre_process_tutorial.ipynb)
 
 ## Citation
-Coming soon
+Coming soon!

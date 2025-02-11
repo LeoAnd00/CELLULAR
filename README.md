@@ -26,6 +26,12 @@ The following functions have been included:
 ## Data
 Data for the tutorials is available to download from [Zenodo](https://doi.org/10.5281/zenodo.10959788).
 
+You will need to unpack the data. You can do that as follows:
+```
+tar -`vf data.rar  # Data for reproducing the work
+tar -xvf tutorial.rar  # Data for the tutorials
+```
+
 ## Usage
 
 ### For creating a learned embedding space

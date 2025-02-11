@@ -9,7 +9,7 @@ install_requires=[
     l.strip() for l in Path('requirements.txt').read_text('utf-8').splitlines()
     if l.strip() and not l.startswith("--")  # Ignore empty lines and options like --extra-index-url
 ],
-if sys.platform.startswith("win"): # Conditionally add pywin32 only on Windows
+if sys.platform.startswith("win"):  # Conditionally add pywin32 only on Windows
     install_requires.append("pywin32==306")
 
 setup(

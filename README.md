@@ -33,6 +33,7 @@ tar -xvf tutorial.rar  # Data for the tutorials
 ```
 
 ## Usage
+Before using the model one first needs to obtain data to use as input. An example on how to divide data into training and test data can be found in the tutorial folder. In the code examples below it is assumed that the user has already created training data ("train_data.h5ad") and testing data ("test_data.h5ad").
 
 ### For creating a learned embedding space
 ```

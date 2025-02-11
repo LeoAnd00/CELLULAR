@@ -14,7 +14,7 @@ if sys.platform.startswith("win"):  # Conditionally add pywin32 only on Windows
 
 setup(
     name="CELLULAR_CL",
-    version="0.0.2",
+    version="0.0.3",
     author="Leo Andrekson, Rocío Mercado",
     author_email="leo.andrekson@gmail.com, rocom@chalmers.se",
     description="A package for generating an embedding space from scRNA-Seq. This space can be used for cell type annotation, novel cell type detection, cell type representations, and visualization.",

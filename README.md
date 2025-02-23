@@ -28,7 +28,7 @@ Data for the tutorials is available to download from [Zenodo](https://doi.org/10
 
 You will need to unpack the data. You can do that as follows:
 ```
-tar -`vf data.rar  # Data for reproducing the work
+tar -xvf data.rar  # Data for reproducing the work
 tar -xvf tutorial.rar  # Data for the tutorials
 ```
 
